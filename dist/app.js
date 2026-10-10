@@ -25,6 +25,24 @@ function updateTabs(target, key) {
   target.querySelectorAll('button').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.environment === key)));
 }
 
+function makeEnvironmentTabs(target, environments, key, selected, onSelect, numbered = false) {
+  target.replaceChildren();
+  for (const suite of ['main', 'hard']) {
+    const entries = environments.filter((env) => (env.suite || 'main') === suite);
+    if (!entries.length) continue;
+    const group = document.createElement('div');
+    group.className = 'environment-group';
+    const label = document.createElement('span');
+    label.className = 'environment-group-label';
+    label.textContent = suite === 'hard' ? 'Hard environments' : 'Main environments';
+    const tabs = document.createElement('div');
+    tabs.className = 'environment-options';
+    makeTabs(tabs, entries, key, selected, onSelect, numbered);
+    group.append(label, tabs);
+    target.append(group);
+  }
+}
+
 const heroObserver = new IntersectionObserver((entries) => {
   entries.forEach(({ target, isIntersecting }) => {
     target.dataset.visible = String(isIntersecting);
@@ -177,22 +195,30 @@ function renderResult(id) {
   updateTabs($('#result-tabs'), id);
   $('#result-curve').src = env.curve;
   $('#result-curve').alt = `${env.name}: client-average evaluation return across 100 federated rounds for seven methods. Mean and one standard error across five seeds.`;
+  $('#result-description').textContent = env.description || 'Client-average evaluation return over federated rounds';
+  $('#chart-caption').textContent = `Curves show mean ± 1 standard error across five seeds. Final return is the last-10-round mean, reported as mean ± standard deviation across seeds.${env.yScale === 'symlog' ? ' Reacher-Hard uses a symmetric logarithmic return axis to show the full range, including negative returns.' : ''}`;
   $('#insight-env').textContent = env.name.toUpperCase();
   $('#insight-mean').textContent = format(metric.mean);
   $('#insight-std').textContent = `± ${new Intl.NumberFormat('en-US', { maximumFractionDigits: metric.std < 1 ? 2 : 1 }).format(metric.std)}`;
   $('#baseline-number').textContent = format(baseline.mean);
   $('#baseline-caption').textContent = `${baselineMethod.name} · best external baseline`;
-  const takeaway = id === 'reacher'
+  const hardTakeaways = {
+    reacher_hard: 'FedGuide-P has the highest mean final return on Reacher-Hard, followed by FedGuide.',
+    hopper_hard: 'FedRL has the highest mean final return on Hopper-Hard. FedGuide leads the three FedGuide variants.',
+    walker_hard: 'FedGuide has the highest mean final return on Walker2D-Hard across all seven methods.',
+    halfcheetah_hard: 'FedGuide has the highest mean final return on HalfCheetah-Hard across all seven methods.',
+  };
+  const takeaway = hardTakeaways[id] || (id === 'reacher'
     ? 'FedGuide-P leads slightly (−12.2 vs. −12.3). Both outperform the external baselines.'
     : id === 'metaworld'
       ? 'Highest mean final return. Task-level heterogeneity remains challenging.'
-      : `${baseline.ratio.toFixed(2)}× the final return of the strongest external baseline.`;
+      : `${baseline.ratio.toFixed(2)}× the final return of the strongest external baseline.`);
   $('#insight-takeaway').textContent = takeaway;
 }
 
 function renderTable() {
   const table = $('#results-table');
-  const caption = document.createElement('caption'); caption.className = 'sr-only'; caption.textContent = `Main benchmark ${state.metric === 'mean' ? 'final' : 'worst-seed'} returns for seven methods`;
+  const caption = document.createElement('caption'); caption.className = 'sr-only'; caption.textContent = `Main and hard benchmark ${state.metric === 'mean' ? 'final' : 'worst-seed'} returns for seven methods`;
   const head = document.createElement('thead');
   const headRow = document.createElement('tr');
   ['Environment', ...state.results.methods.map((method) => method.name)].forEach((name) => {
@@ -200,7 +226,19 @@ function renderTable() {
   });
   head.append(headRow);
   const body = document.createElement('tbody');
+  let previousSuite = null;
   state.results.environments.forEach((env) => {
+    const suite = env.suite || 'main';
+    if (suite !== previousSuite) {
+      const suiteRow = document.createElement('tr');
+      suiteRow.className = 'table-suite-heading';
+      const suiteName = document.createElement('th');
+      suiteName.colSpan = state.results.methods.length + 1;
+      suiteName.textContent = suite === 'hard' ? 'Hard environments' : 'Main environments';
+      suiteRow.append(suiteName);
+      body.append(suiteRow);
+      previousSuite = suite;
+    }
     const row = document.createElement('tr');
     const name = document.createElement('th'); name.scope = 'row'; name.textContent = env.name; row.append(name);
     const best = Math.max(...state.results.methods.map((method) => env.metrics[method.key][state.metric]));
@@ -280,7 +318,7 @@ Promise.allSettled([readJSON('demo-data.json'), readJSON('results-data.json')]).
   if (demos.status === 'fulfilled') {
     state.demos = demos.value;
     renderHero();
-    makeTabs($('#demo-tabs'), state.demos.environments, 'id', state.environment, selectEnvironment, true);
+    makeEnvironmentTabs($('#demo-tabs'), state.demos.environments, 'id', state.environment, selectEnvironment, true);
     selectEnvironment(state.environment);
   } else {
     $('#hero-gallery').innerHTML = '<p class="asset-error">Demonstrations could not load. Please serve this page over HTTP and reload.</p>';
@@ -290,7 +328,7 @@ Promise.allSettled([readJSON('demo-data.json'), readJSON('results-data.json')]).
   }
   if (results.status === 'fulfilled') {
     state.results = results.value;
-    makeTabs($('#result-tabs'), state.results.environments, 'key', state.resultEnvironment, renderResult);
+    makeEnvironmentTabs($('#result-tabs'), state.results.environments, 'key', state.resultEnvironment, renderResult);
     renderResult(state.resultEnvironment);
     renderTable();
   } else {

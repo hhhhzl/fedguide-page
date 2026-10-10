@@ -24,3 +24,14 @@
 .curve-wrap img{aspect-ratio:1.6}
 @media(max-width:760px){.playback-row{top:62px}.client-count{font-size:9px}.video-grid{padding-bottom:18px}.client-row{padding-top:20px}.client-videos{grid-template-columns:1fr;gap:13px}.client-heading h4{font-size:13px}.video-card video{aspect-ratio:1}.playback-row #playback-status{margin-top:7px}.client-row+.client-row{margin-top:22px}.demo-controls{flex-wrap:wrap}.curve-wrap img{aspect-ratio:1.6}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+
+/* Keep both experiment suites visible, with independent scrolling on narrow screens. */
+.environment-tabs{display:block;overflow:visible}
+.environment-group{display:flex;align-items:center;gap:16px;min-width:0}
+.environment-group+.environment-group{margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+.environment-group-label{flex:0 0 116px;font-size:10px;letter-spacing:.5px;color:var(--muted);font-weight:600}
+.environment-options{display:flex;align-items:center;gap:8px;overflow-x:auto;min-width:0;padding:4px;scrollbar-width:thin}
+.environment-options button{flex-shrink:0}
+.table-suite-heading th{background:#f0f4fb!important;color:var(--blue);font-size:10px;letter-spacing:.7px;text-transform:uppercase;text-align:left;padding-block:10px!important}
+.hard-results-context{margin-top:12px}
+@media(max-width:760px){.environment-group{display:block}.environment-group-label{display:block;margin:0 4px 5px;font-size:9px}.environment-group+.environment-group{margin-top:7px;padding-top:9px}.environment-options{gap:4px}.small-tabs .environment-options button{font-size:10px}.hard-results-context{margin-top:10px}}

@@ -20,21 +20,24 @@
     "finalDefinition": "For each seed, average client-average evaluation return over the last 10 communication rounds; report the mean and sample standard deviation across five seeds.",
     "worstSeedDefinition": "Minimum across the five seeds of each seed's last-10-round mean client-average evaluation return.",
     "cvDefinition": "Average across seeds of the within-seed sample standard deviation over the last 20 rounds, divided by the absolute final mean return. Lower is better.",
-    "curveDefinition": "Mean across five seeds with shaded plus/minus one standard error, using trailing-mean smoothing. Window 5 for all methods, except FedAvg and FedKL use window 1 on Reacher, Hopper, Walker2D and HalfCheetah.",
+    "curveDefinition": "Mean across five seeds with shaded plus/minus one standard error, using trailing-mean smoothing. Window 5 for all methods, except FedAvg and FedKL use window 1 on Reacher, Hopper, Walker2D and HalfCheetah, including their hard variants. Reacher-Hard uses a symmetric-logarithmic return axis with a linear threshold of 10; aggregation is performed before the axis transform.",
     "rawHistoryMetric": "metrics_distributed_fit[\"eval/return\"]",
     "sourceFiles": [
       "latex/latex_fedguide/tex/results_table.tex",
       "latex/latex_fedguide/tex/fg_family_table.tex",
       "scripts/viz/compute_table_metrics.py",
       "scripts/viz/compute_fg_family_table.py",
-      "scripts/viz/plot_posttrain.py"
+      "scripts/viz/plot_posttrain.py",
+      "scripts/viz/plot_ablation_hard.py",
+      "latex/latex_fedguide/tex/ablation_results.tex"
     ],
-    "verification": "Recomputed from the existing training_history.pkl files. Rounded values match the paper tables. All 35 environment-method combinations have five seeds and 100 common evaluation rounds.",
+    "verification": "Recomputed from the existing training_history.pkl files. Rounded values match the paper tables. All 63 environment-method combinations (five main and four hard benchmarks, seven methods) have five seeds and 100 common evaluation rounds.",
     "sourceLabelNotes": [
       "The paper results-table caption calls W worst-round; the executable metric definition is worst-seed as documented here.",
       "The paper curve caption says one standard deviation; the plotting code computes one standard error, documented here."
     ],
-    "qualitativeSelection": "Final-round qualitative rollouts select the best available seed per environment and method using last-10-round evaluation return. Quantitative results average five seeds."
+    "qualitativeSelection": "Final-round qualitative rollouts select the best available seed per environment and method using last-10-round evaluation return. Quantitative results average five seeds.",
+    "hardSuiteDefinition": "Four stronger-heterogeneity benchmarks from the paper's hard ablation: Reacher-Hard (ablation C), Hopper-Hard, Walker2D-Hard and HalfCheetah-Hard. The experimental protocol fixes eight clients, five seeds and 100 communication rounds."
   },
   "methods": [
     {
@@ -132,7 +135,8 @@
         "mean": -13.43181453506493,
         "difference": 1.1806226790512966
       },
-      "curve": "assets/curves/reacher.png"
+      "curve": "assets/curves/reacher.png",
+      "suite": "main"
     },
     {
       "key": "hopper",
@@ -187,7 +191,8 @@
         "ratio": 1.1984871586065746,
         "percentImprovement": 19.848715860657464
       },
-      "curve": "assets/curves/hopper.png"
+      "curve": "assets/curves/hopper.png",
+      "suite": "main"
     },
     {
       "key": "walker",
@@ -242,7 +247,8 @@
         "ratio": 1.3318381854319157,
         "percentImprovement": 33.18381854319157
       },
-      "curve": "assets/curves/walker.png"
+      "curve": "assets/curves/walker.png",
+      "suite": "main"
     },
     {
       "key": "halfcheetah",
@@ -297,7 +303,8 @@
         "ratio": 2.0984777758435813,
         "percentImprovement": 109.84777758435813
       },
-      "curve": "assets/curves/halfcheetah.png"
+      "curve": "assets/curves/halfcheetah.png",
+      "suite": "main"
     },
     {
       "key": "metaworld",
@@ -352,7 +359,239 @@
         "ratio": 1.2249754550067127,
         "percentImprovement": 22.49754550067127
       },
-      "curve": "assets/curves/metaworld.png"
+      "curve": "assets/curves/metaworld.png",
+      "suite": "main"
+    },
+    {
+      "key": "reacher_hard",
+      "name": "Reacher-Hard",
+      "suite": "hard",
+      "clientCount": 8,
+      "description": "Stronger heterogeneity in reaching goals, action noise, reward scale and physical dynamics (ablation C).",
+      "metrics": {
+        "fedavg": {
+          "mean": -2530.644083204337,
+          "std": 1823.155482137066,
+          "worstSeed": -5210.37087445248
+        },
+        "fedkl": {
+          "mean": -4274.214761267263,
+          "std": 2069.584611134627,
+          "worstSeed": -7117.651141354239
+        },
+        "fedrl_ddpg": {
+          "mean": -90.21480012963347,
+          "std": 4.969664615143963,
+          "worstSeed": -94.83433100619077
+        },
+        "fedmomentum": {
+          "mean": -8339.129197194774,
+          "std": 6580.237921204641,
+          "worstSeed": -16455.752019475833
+        },
+        "fedguide_a": {
+          "mean": -1994.7374968296408,
+          "std": 128.190859678396,
+          "worstSeed": -2147.9264949423873
+        },
+        "fedguide_p": {
+          "mean": 90.65911215727394,
+          "std": 15.691798473213156,
+          "worstSeed": 67.36718576561944
+        },
+        "fedguide": {
+          "mean": 86.52229233059114,
+          "std": 37.60115261443919,
+          "worstSeed": 37.60887582306937
+        }
+      },
+      "familyCV": {
+        "fedguide_a": 2.0967539405706415,
+        "fedguide_p": 0.22859752711181702,
+        "fedguide": 0.34207002844903667
+      },
+      "bestExternalBaseline": {
+        "method": "fedrl_ddpg",
+        "mean": -90.21480012963347,
+        "difference": 176.73709246022463
+      },
+      "curve": "assets/curves/reacher_hard.png",
+      "sourceRoot": "metrics/reacher/ablation/C",
+      "yScale": "symlog"
+    },
+    {
+      "key": "hopper_hard",
+      "name": "Hopper-Hard",
+      "suite": "hard",
+      "clientCount": 8,
+      "description": "Stronger client variation in mass, damping, friction, actuator strength and reward preferences.",
+      "metrics": {
+        "fedavg": {
+          "mean": 215.99023522416527,
+          "std": 20.09647896163816,
+          "worstSeed": 186.93669772583
+        },
+        "fedkl": {
+          "mean": 242.43948284869188,
+          "std": 40.9897805058193,
+          "worstSeed": 197.13062876501297
+        },
+        "fedrl_ddpg": {
+          "mean": 698.7805626754438,
+          "std": 256.30649250282966,
+          "worstSeed": 404.078639798668
+        },
+        "fedmomentum": {
+          "mean": 387.06434172052303,
+          "std": 284.7648409117625,
+          "worstSeed": 169.3555948756351
+        },
+        "fedguide_a": {
+          "mean": 398.08323024200706,
+          "std": 10.886527570713245,
+          "worstSeed": 383.83864018717134
+        },
+        "fedguide_p": {
+          "mean": 436.843362570917,
+          "std": 51.572241095312194,
+          "worstSeed": 383.2784615959997
+        },
+        "fedguide": {
+          "mean": 509.8064621109179,
+          "std": 43.96884121636474,
+          "worstSeed": 445.08830450809126
+        }
+      },
+      "familyCV": {
+        "fedguide_a": 0.37720417831012637,
+        "fedguide_p": 0.18516274067326852,
+        "fedguide": 0.13306914803794567
+      },
+      "bestExternalBaseline": {
+        "method": "fedrl_ddpg",
+        "mean": 698.7805626754438,
+        "difference": -188.97410056452588,
+        "ratio": 0.7295658885516296,
+        "percentImprovement": -27.04341114483703
+      },
+      "curve": "assets/curves/hopper_hard.png",
+      "sourceRoot": "metrics/hopper_hard"
+    },
+    {
+      "key": "walker_hard",
+      "name": "Walker2D-Hard",
+      "suite": "hard",
+      "clientCount": 8,
+      "description": "Stronger client variation in mass, damping, friction, actuator strength and reward preferences.",
+      "metrics": {
+        "fedavg": {
+          "mean": 256.38361232400206,
+          "std": 13.181726933263855,
+          "worstSeed": 241.02464357331382
+        },
+        "fedkl": {
+          "mean": 286.45798617409014,
+          "std": 24.2791951346696,
+          "worstSeed": 257.7870008236083
+        },
+        "fedrl_ddpg": {
+          "mean": 321.08527978451986,
+          "std": 57.78565995304711,
+          "worstSeed": 257.8036658360221
+        },
+        "fedmomentum": {
+          "mean": 57.76034929293646,
+          "std": 24.471124478248154,
+          "worstSeed": 27.27090548120848
+        },
+        "fedguide_a": {
+          "mean": 379.89507886013735,
+          "std": 10.933388278030984,
+          "worstSeed": 367.5683964032484
+        },
+        "fedguide_p": {
+          "mean": 361.3787947388086,
+          "std": 25.322989136636238,
+          "worstSeed": 326.8516397683285
+        },
+        "fedguide": {
+          "mean": 414.6911663724389,
+          "std": 14.456731699829904,
+          "worstSeed": 395.8384118730825
+        }
+      },
+      "familyCV": {
+        "fedguide_a": 0.17771275820342092,
+        "fedguide_p": 0.15482943241822228,
+        "fedguide": 0.08767794576796152
+      },
+      "bestExternalBaseline": {
+        "method": "fedrl_ddpg",
+        "mean": 321.08527978451986,
+        "difference": 93.60588658791903,
+        "ratio": 1.2915296728979226,
+        "percentImprovement": 29.152967289792258
+      },
+      "curve": "assets/curves/walker_hard.png",
+      "sourceRoot": "metrics/walker_hard"
+    },
+    {
+      "key": "halfcheetah_hard",
+      "name": "HalfCheetah-Hard",
+      "suite": "hard",
+      "clientCount": 8,
+      "description": "A stronger-heterogeneity locomotion benchmark with the same eight-client experimental protocol.",
+      "metrics": {
+        "fedavg": {
+          "mean": 231.13108353503804,
+          "std": 450.7322602844098,
+          "worstSeed": -544.1599054309004
+        },
+        "fedkl": {
+          "mean": 373.1418931910921,
+          "std": 109.98016330887867,
+          "worstSeed": 217.18223082628865
+        },
+        "fedrl_ddpg": {
+          "mean": 831.7818062063043,
+          "std": 349.2274289532341,
+          "worstSeed": 327.5301495205034
+        },
+        "fedmomentum": {
+          "mean": 96.12645224003674,
+          "std": 250.51601769683342,
+          "worstSeed": -282.09038064115714
+        },
+        "fedguide_a": {
+          "mean": 1272.003071912115,
+          "std": 202.87179966192198,
+          "worstSeed": 927.676289822721
+        },
+        "fedguide_p": {
+          "mean": 1518.9038433571034,
+          "std": 327.45986617871046,
+          "worstSeed": 1168.181383445247
+        },
+        "fedguide": {
+          "mean": 2145.8157978174067,
+          "std": 304.47700070006624,
+          "worstSeed": 1893.032611771414
+        }
+      },
+      "familyCV": {
+        "fedguide_a": 0.5913147677306474,
+        "fedguide_p": 0.23130376554989432,
+        "fedguide": 0.20074001312732917
+      },
+      "bestExternalBaseline": {
+        "method": "fedrl_ddpg",
+        "mean": 831.7818062063043,
+        "difference": 1314.0339916111025,
+        "ratio": 2.5797820796349407,
+        "percentImprovement": 157.97820796349407
+      },
+      "curve": "assets/curves/halfcheetah_hard.png",
+      "sourceRoot": "metrics/halfcheetah_hard"
     }
   ],
   "summaryCurve": "assets/curves/summary_all_algos.png"
