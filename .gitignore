@@ -1,0 +1,6 @@
+!dist/
+!dist/**
+.preview.log
+.DS_Store
+__pycache__/
+preview*.jpg

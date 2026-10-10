@@ -1,0 +1,10 @@
+{
+  "name": "fedguide-research-page",
+  "private": true,
+  "version": "1.0.0",
+  "description": "FedGuide academic project page with source-grounded results and recorded policy demonstrations",
+  "scripts": {
+    "dev": "node server.mjs",
+    "check": "node --check dist/app.js"
+  }
+}

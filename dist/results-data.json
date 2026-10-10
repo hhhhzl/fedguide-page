@@ -1,0 +1,359 @@
+{
+  "metadata": {
+    "title": "FedGuide: Diffusion Prior Alignment and Value Baseline Guidance for Heterogeneous Federated Reinforcement Learning",
+    "authors": [
+      "Zhilin He",
+      "Gauri Joshi"
+    ],
+    "affiliation": "Carnegie Mellon University",
+    "seedCount": 5,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "roundCount": 100,
+    "expertCount": 8,
+    "metric": "Client-average evaluation return",
+    "finalDefinition": "For each seed, average client-average evaluation return over the last 10 communication rounds; report the mean and sample standard deviation across five seeds.",
+    "worstSeedDefinition": "Minimum across the five seeds of each seed's last-10-round mean client-average evaluation return.",
+    "cvDefinition": "Average across seeds of the within-seed sample standard deviation over the last 20 rounds, divided by the absolute final mean return. Lower is better.",
+    "curveDefinition": "Mean across five seeds with shaded plus/minus one standard error, using trailing-mean smoothing. Window 5 for all methods, except FedAvg and FedKL use window 1 on Reacher, Hopper, Walker2D and HalfCheetah.",
+    "rawHistoryMetric": "metrics_distributed_fit[\"eval/return\"]",
+    "sourceFiles": [
+      "latex/latex_fedguide/tex/results_table.tex",
+      "latex/latex_fedguide/tex/fg_family_table.tex",
+      "scripts/viz/compute_table_metrics.py",
+      "scripts/viz/compute_fg_family_table.py",
+      "scripts/viz/plot_posttrain.py"
+    ],
+    "verification": "Recomputed from the existing training_history.pkl files. Rounded values match the paper tables. All 35 environment-method combinations have five seeds and 100 common evaluation rounds.",
+    "sourceLabelNotes": [
+      "The paper results-table caption calls W worst-round; the executable metric definition is worst-seed as documented here.",
+      "The paper curve caption says one standard deviation; the plotting code computes one standard error, documented here."
+    ],
+    "qualitativeSelection": "Final-round qualitative rollouts select the best available seed per environment and method using last-10-round evaluation return. Quantitative results average five seeds."
+  },
+  "methods": [
+    {
+      "key": "fedavg",
+      "name": "FedAvg",
+      "color": "#CC79A7",
+      "family": false
+    },
+    {
+      "key": "fedkl",
+      "name": "FedKL",
+      "color": "#9467bd",
+      "family": false
+    },
+    {
+      "key": "fedrl_ddpg",
+      "name": "FedRL",
+      "color": "#2ca02c",
+      "family": false
+    },
+    {
+      "key": "fedmomentum",
+      "name": "FedSVRPG-M",
+      "color": "#17becf",
+      "family": false
+    },
+    {
+      "key": "fedguide_a",
+      "name": "FedGuide-A",
+      "color": "#ff7f0e",
+      "family": true
+    },
+    {
+      "key": "fedguide_p",
+      "name": "FedGuide-P",
+      "color": "#d62728",
+      "family": true
+    },
+    {
+      "key": "fedguide",
+      "name": "FedGuide",
+      "color": "#1f77b4",
+      "family": true
+    }
+  ],
+  "environments": [
+    {
+      "key": "reacher",
+      "name": "Reacher",
+      "clientCount": 8,
+      "metrics": {
+        "fedavg": {
+          "mean": -19.432846249811682,
+          "std": 1.8233754112247118,
+          "worstSeed": -21.372837503889265
+        },
+        "fedkl": {
+          "mean": -20.87529755537964,
+          "std": 1.6287910748169834,
+          "worstSeed": -22.32365593560726
+        },
+        "fedrl_ddpg": {
+          "mean": -13.43181453506493,
+          "std": 1.1592186592953417,
+          "worstSeed": -14.444713847219651
+        },
+        "fedmomentum": {
+          "mean": -24.8609330402196,
+          "std": 3.459421299403652,
+          "worstSeed": -29.800810579015216
+        },
+        "fedguide_a": {
+          "mean": -16.092217678470252,
+          "std": 0.4804074783943403,
+          "worstSeed": -16.75795942669559
+        },
+        "fedguide_p": {
+          "mean": -12.179357544403121,
+          "std": 0.34705037836467273,
+          "worstSeed": -12.552199273738644
+        },
+        "fedguide": {
+          "mean": -12.251191856013634,
+          "std": 0.667499783717365,
+          "worstSeed": -12.95133380659795
+        }
+      },
+      "familyCV": {
+        "fedguide_a": 0.3800553120746742,
+        "fedguide_p": 0.06754815699026508,
+        "fedguide": 0.05313537650988783
+      },
+      "bestExternalBaseline": {
+        "method": "fedrl_ddpg",
+        "mean": -13.43181453506493,
+        "difference": 1.1806226790512966
+      },
+      "curve": "assets/curves/reacher.png"
+    },
+    {
+      "key": "hopper",
+      "name": "Hopper",
+      "clientCount": 8,
+      "metrics": {
+        "fedavg": {
+          "mean": 227.39951523123085,
+          "std": 42.51710597997205,
+          "worstSeed": 179.89084050669845
+        },
+        "fedkl": {
+          "mean": 252.91360993636349,
+          "std": 48.11095366057214,
+          "worstSeed": 206.68312721986808
+        },
+        "fedrl_ddpg": {
+          "mean": 527.0941969097887,
+          "std": 119.85210616633401,
+          "worstSeed": 379.77120332904485
+        },
+        "fedmomentum": {
+          "mean": 525.287076134717,
+          "std": 359.77438456344765,
+          "worstSeed": 166.3952152532226
+        },
+        "fedguide_a": {
+          "mean": 481.4490038697883,
+          "std": 26.52310361454763,
+          "worstSeed": 451.31390314843594
+        },
+        "fedguide_p": {
+          "mean": 507.3003545580029,
+          "std": 19.346000225154746,
+          "worstSeed": 481.43324704498684
+        },
+        "fedguide": {
+          "mean": 631.715626372427,
+          "std": 19.047483045659774,
+          "worstSeed": 613.6238229574682
+        }
+      },
+      "familyCV": {
+        "fedguide_a": 0.401739916280349,
+        "fedguide_p": 0.1643071142766988,
+        "fedguide": 0.15546008119837712
+      },
+      "bestExternalBaseline": {
+        "method": "fedrl_ddpg",
+        "mean": 527.0941969097887,
+        "difference": 104.62142946263828,
+        "ratio": 1.1984871586065746,
+        "percentImprovement": 19.848715860657464
+      },
+      "curve": "assets/curves/hopper.png"
+    },
+    {
+      "key": "walker",
+      "name": "Walker2D",
+      "clientCount": 8,
+      "metrics": {
+        "fedavg": {
+          "mean": 282.82806704269854,
+          "std": 27.359570071657416,
+          "worstSeed": 251.80626235643132
+        },
+        "fedkl": {
+          "mean": 264.5378829936783,
+          "std": 21.44636215987947,
+          "worstSeed": 250.1131820454787
+        },
+        "fedrl_ddpg": {
+          "mean": 360.4306322170848,
+          "std": 113.0578299821047,
+          "worstSeed": 218.86928634413766
+        },
+        "fedmomentum": {
+          "mean": 155.9323497427387,
+          "std": 113.44880413883472,
+          "worstSeed": 21.269062831068833
+        },
+        "fedguide_a": {
+          "mean": 421.589548226023,
+          "std": 31.541385836771703,
+          "worstSeed": 376.64626870257763
+        },
+        "fedguide_p": {
+          "mean": 382.8715793389015,
+          "std": 18.697911775487633,
+          "worstSeed": 352.9692451358827
+        },
+        "fedguide": {
+          "mean": 480.0352791860804,
+          "std": 18.60179664660571,
+          "worstSeed": 460.93810064533955
+        }
+      },
+      "familyCV": {
+        "fedguide_a": 0.2083404799507498,
+        "fedguide_p": 0.17895849825902357,
+        "fedguide": 0.12736643401626827
+      },
+      "bestExternalBaseline": {
+        "method": "fedrl_ddpg",
+        "mean": 360.4306322170848,
+        "difference": 119.60464696899561,
+        "ratio": 1.3318381854319157,
+        "percentImprovement": 33.18381854319157
+      },
+      "curve": "assets/curves/walker.png"
+    },
+    {
+      "key": "halfcheetah",
+      "name": "HalfCheetah",
+      "clientCount": 8,
+      "metrics": {
+        "fedavg": {
+          "mean": 599.6236832404068,
+          "std": 92.13249646158175,
+          "worstSeed": 486.4758339588586
+        },
+        "fedkl": {
+          "mean": 950.1980839484573,
+          "std": 90.73058535961087,
+          "worstSeed": 820.952993337637
+        },
+        "fedrl_ddpg": {
+          "mean": 579.3252604062038,
+          "std": 144.52460058136464,
+          "worstSeed": 421.0485876100396
+        },
+        "fedmomentum": {
+          "mean": -42.17563272041724,
+          "std": 393.08402123732617,
+          "worstSeed": -409.0515102094683
+        },
+        "fedguide_a": {
+          "mean": 1439.1230950080164,
+          "std": 176.26282923689,
+          "worstSeed": 1245.8036444058775
+        },
+        "fedguide_p": {
+          "mean": 1768.469624668475,
+          "std": 499.8547800411029,
+          "worstSeed": 977.5356547239126
+        },
+        "fedguide": {
+          "mean": 1993.9695618149913,
+          "std": 304.15619339990667,
+          "worstSeed": 1681.0414069751066
+        }
+      },
+      "familyCV": {
+        "fedguide_a": 0.6280371138643837,
+        "fedguide_p": 0.23468759544708193,
+        "fedguide": 0.24143643338074772
+      },
+      "bestExternalBaseline": {
+        "method": "fedkl",
+        "mean": 950.1980839484573,
+        "difference": 1043.771477866534,
+        "ratio": 2.0984777758435813,
+        "percentImprovement": 109.84777758435813
+      },
+      "curve": "assets/curves/halfcheetah.png"
+    },
+    {
+      "key": "metaworld",
+      "name": "MetaWorld10",
+      "clientCount": 10,
+      "metrics": {
+        "fedavg": {
+          "mean": 630.683186295114,
+          "std": 237.55495671956908,
+          "worstSeed": 247.8501663476518
+        },
+        "fedkl": {
+          "mean": 445.4600059004977,
+          "std": 212.9475165424228,
+          "worstSeed": 312.8146360195978
+        },
+        "fedrl_ddpg": {
+          "mean": 766.9048719783748,
+          "std": 53.624429864765965,
+          "worstSeed": 723.7736983843093
+        },
+        "fedmomentum": {
+          "mean": 667.8267343582594,
+          "std": 102.22565679684699,
+          "worstSeed": 546.5309720605294
+        },
+        "fedguide_a": {
+          "mean": 828.6638072110211,
+          "std": 82.46904937505906,
+          "worstSeed": 743.9979263021711
+        },
+        "fedguide_p": {
+          "mean": 913.7694179795005,
+          "std": 58.20718997178936,
+          "worstSeed": 815.9018868485348
+        },
+        "fedguide": {
+          "mean": 939.4396444985745,
+          "std": 141.04843866272026,
+          "worstSeed": 715.5283269569966
+        }
+      },
+      "familyCV": {
+        "fedguide_a": 0.3637916086663823,
+        "fedguide_p": 0.27155310533921867,
+        "fedguide": 0.260282331534156
+      },
+      "bestExternalBaseline": {
+        "method": "fedrl_ddpg",
+        "mean": 766.9048719783748,
+        "difference": 172.53477252019968,
+        "ratio": 1.2249754550067127,
+        "percentImprovement": 22.49754550067127
+      },
+      "curve": "assets/curves/metaworld.png"
+    }
+  ],
+  "summaryCurve": "assets/curves/summary_all_algos.png"
+}

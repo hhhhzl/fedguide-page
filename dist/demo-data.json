@@ -1,0 +1,1393 @@
+{
+  "round": 100,
+  "selectionNote": "Representative round-100 recordings use the seeds in assets/video_selection.json. Selection scores are tail-10 environment-average evaluation returns for each method, not the return of the displayed episode. Different methods may use different selected seeds.",
+  "sourceManifest": "assets/video_selection.json",
+  "environments": [
+    {
+      "id": "reacher",
+      "name": "Reacher",
+      "description": "Reaching under different client goals and action noise.",
+      "poster": "assets/posters/reacher.jpg",
+      "clients": [
+        {
+          "id": 0,
+          "label": "Client 0"
+        },
+        {
+          "id": 1,
+          "label": "Client 1"
+        },
+        {
+          "id": 2,
+          "label": "Client 2"
+        },
+        {
+          "id": 3,
+          "label": "Client 3"
+        },
+        {
+          "id": 4,
+          "label": "Client 4"
+        },
+        {
+          "id": 5,
+          "label": "Client 5"
+        },
+        {
+          "id": 6,
+          "label": "Client 6"
+        },
+        {
+          "id": 7,
+          "label": "Client 7"
+        }
+      ],
+      "methods": [
+        {
+          "id": "fedguide",
+          "label": "FedGuide",
+          "seed": 3,
+          "selectionScore": -11.1745161141568,
+          "selectionMode": "env_algo_average",
+          "scoreSource": "metrics_distributed_fit:eval/return:tail10",
+          "videos": {
+            "0": {
+              "src": "assets/videos/reacher/fedguide/client-0.mp4",
+              "poster": "assets/posters/reacher/fedguide/client-0.jpg",
+              "seed": 3,
+              "client": 0,
+              "round": 100,
+              "source": "plots/reacher/fedguide/seed_3/client_0/round_0100.mp4"
+            },
+            "1": {
+              "src": "assets/videos/reacher/fedguide/client-1.mp4",
+              "poster": "assets/posters/reacher/fedguide/client-1.jpg",
+              "seed": 3,
+              "client": 1,
+              "round": 100,
+              "source": "plots/reacher/fedguide/seed_3/client_1/round_0100.mp4"
+            },
+            "2": {
+              "src": "assets/videos/reacher/fedguide/client-2.mp4",
+              "poster": "assets/posters/reacher/fedguide/client-2.jpg",
+              "seed": 3,
+              "client": 2,
+              "round": 100,
+              "source": "plots/reacher/fedguide/seed_3/client_2/round_0100.mp4"
+            },
+            "3": {
+              "src": "assets/videos/reacher/fedguide/client-3.mp4",
+              "poster": "assets/posters/reacher/fedguide/client-3.jpg",
+              "seed": 3,
+              "client": 3,
+              "round": 100,
+              "source": "plots/reacher/fedguide/seed_3/client_3/round_0100.mp4"
+            },
+            "4": {
+              "src": "assets/videos/reacher/fedguide/client-4.mp4",
+              "poster": "assets/posters/reacher/fedguide/client-4.jpg",
+              "seed": 3,
+              "client": 4,
+              "round": 100,
+              "source": "plots/reacher/fedguide/seed_3/client_4/round_0100.mp4"
+            },
+            "5": {
+              "src": "assets/videos/reacher/fedguide/client-5.mp4",
+              "poster": "assets/posters/reacher/fedguide/client-5.jpg",
+              "seed": 3,
+              "client": 5,
+              "round": 100,
+              "source": "plots/reacher/fedguide/seed_3/client_5/round_0100.mp4"
+            },
+            "6": {
+              "src": "assets/videos/reacher/fedguide/client-6.mp4",
+              "poster": "assets/posters/reacher/fedguide/client-6.jpg",
+              "seed": 3,
+              "client": 6,
+              "round": 100,
+              "source": "plots/reacher/fedguide/seed_3/client_6/round_0100.mp4"
+            },
+            "7": {
+              "src": "assets/videos/reacher/fedguide/client-7.mp4",
+              "poster": "assets/posters/reacher/fedguide/client-7.jpg",
+              "seed": 3,
+              "client": 7,
+              "round": 100,
+              "source": "plots/reacher/fedguide/seed_3/client_7/round_0100.mp4"
+            }
+          }
+        },
+        {
+          "id": "fedguide_a",
+          "label": "FedGuide-A",
+          "seed": 1,
+          "selectionScore": -15.62500471976259,
+          "selectionMode": "env_algo_average",
+          "scoreSource": "metrics_distributed_fit:eval/return:tail10",
+          "videos": {
+            "0": {
+              "src": "assets/videos/reacher/fedguide_a/client-0.mp4",
+              "poster": "assets/posters/reacher/fedguide_a/client-0.jpg",
+              "seed": 1,
+              "client": 0,
+              "round": 100,
+              "source": "plots/reacher/fedguide_a/seed_1/client_0/round_0100.mp4"
+            },
+            "1": {
+              "src": "assets/videos/reacher/fedguide_a/client-1.mp4",
+              "poster": "assets/posters/reacher/fedguide_a/client-1.jpg",
+              "seed": 1,
+              "client": 1,
+              "round": 100,
+              "source": "plots/reacher/fedguide_a/seed_1/client_1/round_0100.mp4"
+            },
+            "2": {
+              "src": "assets/videos/reacher/fedguide_a/client-2.mp4",
+              "poster": "assets/posters/reacher/fedguide_a/client-2.jpg",
+              "seed": 1,
+              "client": 2,
+              "round": 100,
+              "source": "plots/reacher/fedguide_a/seed_1/client_2/round_0100.mp4"
+            },
+            "3": {
+              "src": "assets/videos/reacher/fedguide_a/client-3.mp4",
+              "poster": "assets/posters/reacher/fedguide_a/client-3.jpg",
+              "seed": 1,
+              "client": 3,
+              "round": 100,
+              "source": "plots/reacher/fedguide_a/seed_1/client_3/round_0100.mp4"
+            },
+            "4": {
+              "src": "assets/videos/reacher/fedguide_a/client-4.mp4",
+              "poster": "assets/posters/reacher/fedguide_a/client-4.jpg",
+              "seed": 1,
+              "client": 4,
+              "round": 100,
+              "source": "plots/reacher/fedguide_a/seed_1/client_4/round_0100.mp4"
+            },
+            "5": {
+              "src": "assets/videos/reacher/fedguide_a/client-5.mp4",
+              "poster": "assets/posters/reacher/fedguide_a/client-5.jpg",
+              "seed": 1,
+              "client": 5,
+              "round": 100,
+              "source": "plots/reacher/fedguide_a/seed_1/client_5/round_0100.mp4"
+            },
+            "6": {
+              "src": "assets/videos/reacher/fedguide_a/client-6.mp4",
+              "poster": "assets/posters/reacher/fedguide_a/client-6.jpg",
+              "seed": 1,
+              "client": 6,
+              "round": 100,
+              "source": "plots/reacher/fedguide_a/seed_1/client_6/round_0100.mp4"
+            },
+            "7": {
+              "src": "assets/videos/reacher/fedguide_a/client-7.mp4",
+              "poster": "assets/posters/reacher/fedguide_a/client-7.jpg",
+              "seed": 1,
+              "client": 7,
+              "round": 100,
+              "source": "plots/reacher/fedguide_a/seed_1/client_7/round_0100.mp4"
+            }
+          }
+        },
+        {
+          "id": "fedguide_p",
+          "label": "FedGuide-P",
+          "seed": 0,
+          "selectionScore": -11.629923294010158,
+          "selectionMode": "env_algo_average",
+          "scoreSource": "metrics_distributed_fit:eval/return:tail10",
+          "videos": {
+            "0": {
+              "src": "assets/videos/reacher/fedguide_p/client-0.mp4",
+              "poster": "assets/posters/reacher/fedguide_p/client-0.jpg",
+              "seed": 0,
+              "client": 0,
+              "round": 100,
+              "source": "plots/reacher/fedguide_p/seed_0/client_0/round_0100.mp4"
+            },
+            "1": {
+              "src": "assets/videos/reacher/fedguide_p/client-1.mp4",
+              "poster": "assets/posters/reacher/fedguide_p/client-1.jpg",
+              "seed": 0,
+              "client": 1,
+              "round": 100,
+              "source": "plots/reacher/fedguide_p/seed_0/client_1/round_0100.mp4"
+            },
+            "2": {
+              "src": "assets/videos/reacher/fedguide_p/client-2.mp4",
+              "poster": "assets/posters/reacher/fedguide_p/client-2.jpg",
+              "seed": 0,
+              "client": 2,
+              "round": 100,
+              "source": "plots/reacher/fedguide_p/seed_0/client_2/round_0100.mp4"
+            },
+            "3": {
+              "src": "assets/videos/reacher/fedguide_p/client-3.mp4",
+              "poster": "assets/posters/reacher/fedguide_p/client-3.jpg",
+              "seed": 0,
+              "client": 3,
+              "round": 100,
+              "source": "plots/reacher/fedguide_p/seed_0/client_3/round_0100.mp4"
+            },
+            "4": {
+              "src": "assets/videos/reacher/fedguide_p/client-4.mp4",
+              "poster": "assets/posters/reacher/fedguide_p/client-4.jpg",
+              "seed": 0,
+              "client": 4,
+              "round": 100,
+              "source": "plots/reacher/fedguide_p/seed_0/client_4/round_0100.mp4"
+            },
+            "5": {
+              "src": "assets/videos/reacher/fedguide_p/client-5.mp4",
+              "poster": "assets/posters/reacher/fedguide_p/client-5.jpg",
+              "seed": 0,
+              "client": 5,
+              "round": 100,
+              "source": "plots/reacher/fedguide_p/seed_0/client_5/round_0100.mp4"
+            },
+            "6": {
+              "src": "assets/videos/reacher/fedguide_p/client-6.mp4",
+              "poster": "assets/posters/reacher/fedguide_p/client-6.jpg",
+              "seed": 0,
+              "client": 6,
+              "round": 100,
+              "source": "plots/reacher/fedguide_p/seed_0/client_6/round_0100.mp4"
+            },
+            "7": {
+              "src": "assets/videos/reacher/fedguide_p/client-7.mp4",
+              "poster": "assets/posters/reacher/fedguide_p/client-7.jpg",
+              "seed": 0,
+              "client": 7,
+              "round": 100,
+              "source": "plots/reacher/fedguide_p/seed_0/client_7/round_0100.mp4"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "hopper",
+      "name": "Hopper",
+      "description": "One-legged locomotion across heterogeneous client environments.",
+      "poster": "assets/posters/hopper.jpg",
+      "clients": [
+        {
+          "id": 0,
+          "label": "Client 0"
+        },
+        {
+          "id": 1,
+          "label": "Client 1"
+        },
+        {
+          "id": 2,
+          "label": "Client 2"
+        },
+        {
+          "id": 3,
+          "label": "Client 3"
+        },
+        {
+          "id": 4,
+          "label": "Client 4"
+        },
+        {
+          "id": 5,
+          "label": "Client 5"
+        },
+        {
+          "id": 6,
+          "label": "Client 6"
+        },
+        {
+          "id": 7,
+          "label": "Client 7"
+        }
+      ],
+      "methods": [
+        {
+          "id": "fedguide",
+          "label": "FedGuide",
+          "seed": 0,
+          "selectionScore": 654.3282554566292,
+          "selectionMode": "env_algo_average",
+          "scoreSource": "metrics_distributed_fit:eval/return:tail10",
+          "videos": {
+            "0": {
+              "src": "assets/videos/hopper/fedguide/client-0.mp4",
+              "poster": "assets/posters/hopper/fedguide/client-0.jpg",
+              "seed": 0,
+              "client": 0,
+              "round": 100,
+              "source": "plots/hopper/fedguide/seed_0/client_0/round_0100.mp4"
+            },
+            "1": {
+              "src": "assets/videos/hopper/fedguide/client-1.mp4",
+              "poster": "assets/posters/hopper/fedguide/client-1.jpg",
+              "seed": 0,
+              "client": 1,
+              "round": 100,
+              "source": "plots/hopper/fedguide/seed_0/client_1/round_0100.mp4"
+            },
+            "2": {
+              "src": "assets/videos/hopper/fedguide/client-2.mp4",
+              "poster": "assets/posters/hopper/fedguide/client-2.jpg",
+              "seed": 0,
+              "client": 2,
+              "round": 100,
+              "source": "plots/hopper/fedguide/seed_0/client_2/round_0100.mp4"
+            },
+            "3": {
+              "src": "assets/videos/hopper/fedguide/client-3.mp4",
+              "poster": "assets/posters/hopper/fedguide/client-3.jpg",
+              "seed": 0,
+              "client": 3,
+              "round": 100,
+              "source": "plots/hopper/fedguide/seed_0/client_3/round_0100.mp4"
+            },
+            "4": {
+              "src": "assets/videos/hopper/fedguide/client-4.mp4",
+              "poster": "assets/posters/hopper/fedguide/client-4.jpg",
+              "seed": 0,
+              "client": 4,
+              "round": 100,
+              "source": "plots/hopper/fedguide/seed_0/client_4/round_0100.mp4"
+            },
+            "5": {
+              "src": "assets/videos/hopper/fedguide/client-5.mp4",
+              "poster": "assets/posters/hopper/fedguide/client-5.jpg",
+              "seed": 0,
+              "client": 5,
+              "round": 100,
+              "source": "plots/hopper/fedguide/seed_0/client_5/round_0100.mp4"
+            },
+            "6": {
+              "src": "assets/videos/hopper/fedguide/client-6.mp4",
+              "poster": "assets/posters/hopper/fedguide/client-6.jpg",
+              "seed": 0,
+              "client": 6,
+              "round": 100,
+              "source": "plots/hopper/fedguide/seed_0/client_6/round_0100.mp4"
+            },
+            "7": {
+              "src": "assets/videos/hopper/fedguide/client-7.mp4",
+              "poster": "assets/posters/hopper/fedguide/client-7.jpg",
+              "seed": 0,
+              "client": 7,
+              "round": 100,
+              "source": "plots/hopper/fedguide/seed_0/client_7/round_0100.mp4"
+            }
+          }
+        },
+        {
+          "id": "fedguide_a",
+          "label": "FedGuide-A",
+          "seed": 1,
+          "selectionScore": 510.2976247702275,
+          "selectionMode": "env_algo_average",
+          "scoreSource": "metrics_distributed_fit:eval/return:tail10",
+          "videos": {
+            "0": {
+              "src": "assets/videos/hopper/fedguide_a/client-0.mp4",
+              "poster": "assets/posters/hopper/fedguide_a/client-0.jpg",
+              "seed": 1,
+              "client": 0,
+              "round": 100,
+              "source": "plots/hopper/fedguide_a/seed_1/client_0/round_0100.mp4"
+            },
+            "1": {
+              "src": "assets/videos/hopper/fedguide_a/client-1.mp4",
+              "poster": "assets/posters/hopper/fedguide_a/client-1.jpg",
+              "seed": 1,
+              "client": 1,
+              "round": 100,
+              "source": "plots/hopper/fedguide_a/seed_1/client_1/round_0100.mp4"
+            },
+            "2": {
+              "src": "assets/videos/hopper/fedguide_a/client-2.mp4",
+              "poster": "assets/posters/hopper/fedguide_a/client-2.jpg",
+              "seed": 1,
+              "client": 2,
+              "round": 100,
+              "source": "plots/hopper/fedguide_a/seed_1/client_2/round_0100.mp4"
+            },
+            "3": {
+              "src": "assets/videos/hopper/fedguide_a/client-3.mp4",
+              "poster": "assets/posters/hopper/fedguide_a/client-3.jpg",
+              "seed": 1,
+              "client": 3,
+              "round": 100,
+              "source": "plots/hopper/fedguide_a/seed_1/client_3/round_0100.mp4"
+            },
+            "4": {
+              "src": "assets/videos/hopper/fedguide_a/client-4.mp4",
+              "poster": "assets/posters/hopper/fedguide_a/client-4.jpg",
+              "seed": 1,
+              "client": 4,
+              "round": 100,
+              "source": "plots/hopper/fedguide_a/seed_1/client_4/round_0100.mp4"
+            },
+            "5": {
+              "src": "assets/videos/hopper/fedguide_a/client-5.mp4",
+              "poster": "assets/posters/hopper/fedguide_a/client-5.jpg",
+              "seed": 1,
+              "client": 5,
+              "round": 100,
+              "source": "plots/hopper/fedguide_a/seed_1/client_5/round_0100.mp4"
+            },
+            "6": {
+              "src": "assets/videos/hopper/fedguide_a/client-6.mp4",
+              "poster": "assets/posters/hopper/fedguide_a/client-6.jpg",
+              "seed": 1,
+              "client": 6,
+              "round": 100,
+              "source": "plots/hopper/fedguide_a/seed_1/client_6/round_0100.mp4"
+            },
+            "7": {
+              "src": "assets/videos/hopper/fedguide_a/client-7.mp4",
+              "poster": "assets/posters/hopper/fedguide_a/client-7.jpg",
+              "seed": 1,
+              "client": 7,
+              "round": 100,
+              "source": "plots/hopper/fedguide_a/seed_1/client_7/round_0100.mp4"
+            }
+          }
+        },
+        {
+          "id": "fedguide_p",
+          "label": "FedGuide-P",
+          "seed": 2,
+          "selectionScore": 533.7930686208523,
+          "selectionMode": "env_algo_average",
+          "scoreSource": "metrics_distributed_fit:eval/return:tail10",
+          "videos": {
+            "0": {
+              "src": "assets/videos/hopper/fedguide_p/client-0.mp4",
+              "poster": "assets/posters/hopper/fedguide_p/client-0.jpg",
+              "seed": 2,
+              "client": 0,
+              "round": 100,
+              "source": "plots/hopper/fedguide_p/seed_2/client_0/round_0100.mp4"
+            },
+            "1": {
+              "src": "assets/videos/hopper/fedguide_p/client-1.mp4",
+              "poster": "assets/posters/hopper/fedguide_p/client-1.jpg",
+              "seed": 2,
+              "client": 1,
+              "round": 100,
+              "source": "plots/hopper/fedguide_p/seed_2/client_1/round_0100.mp4"
+            },
+            "2": {
+              "src": "assets/videos/hopper/fedguide_p/client-2.mp4",
+              "poster": "assets/posters/hopper/fedguide_p/client-2.jpg",
+              "seed": 2,
+              "client": 2,
+              "round": 100,
+              "source": "plots/hopper/fedguide_p/seed_2/client_2/round_0100.mp4"
+            },
+            "3": {
+              "src": "assets/videos/hopper/fedguide_p/client-3.mp4",
+              "poster": "assets/posters/hopper/fedguide_p/client-3.jpg",
+              "seed": 2,
+              "client": 3,
+              "round": 100,
+              "source": "plots/hopper/fedguide_p/seed_2/client_3/round_0100.mp4"
+            },
+            "4": {
+              "src": "assets/videos/hopper/fedguide_p/client-4.mp4",
+              "poster": "assets/posters/hopper/fedguide_p/client-4.jpg",
+              "seed": 2,
+              "client": 4,
+              "round": 100,
+              "source": "plots/hopper/fedguide_p/seed_2/client_4/round_0100.mp4"
+            },
+            "5": {
+              "src": "assets/videos/hopper/fedguide_p/client-5.mp4",
+              "poster": "assets/posters/hopper/fedguide_p/client-5.jpg",
+              "seed": 2,
+              "client": 5,
+              "round": 100,
+              "source": "plots/hopper/fedguide_p/seed_2/client_5/round_0100.mp4"
+            },
+            "6": {
+              "src": "assets/videos/hopper/fedguide_p/client-6.mp4",
+              "poster": "assets/posters/hopper/fedguide_p/client-6.jpg",
+              "seed": 2,
+              "client": 6,
+              "round": 100,
+              "source": "plots/hopper/fedguide_p/seed_2/client_6/round_0100.mp4"
+            },
+            "7": {
+              "src": "assets/videos/hopper/fedguide_p/client-7.mp4",
+              "poster": "assets/posters/hopper/fedguide_p/client-7.jpg",
+              "seed": 2,
+              "client": 7,
+              "round": 100,
+              "source": "plots/hopper/fedguide_p/seed_2/client_7/round_0100.mp4"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "walker",
+      "name": "Walker2D",
+      "description": "Bipedal walking across heterogeneous client environments.",
+      "poster": "assets/posters/walker.jpg",
+      "clients": [
+        {
+          "id": 0,
+          "label": "Client 0"
+        },
+        {
+          "id": 1,
+          "label": "Client 1"
+        },
+        {
+          "id": 2,
+          "label": "Client 2"
+        },
+        {
+          "id": 3,
+          "label": "Client 3"
+        },
+        {
+          "id": 4,
+          "label": "Client 4"
+        },
+        {
+          "id": 5,
+          "label": "Client 5"
+        },
+        {
+          "id": 6,
+          "label": "Client 6"
+        },
+        {
+          "id": 7,
+          "label": "Client 7"
+        }
+      ],
+      "methods": [
+        {
+          "id": "fedguide",
+          "label": "FedGuide",
+          "seed": 2,
+          "selectionScore": 501.4232113197215,
+          "selectionMode": "env_algo_average",
+          "scoreSource": "metrics_distributed_fit:eval/return:tail10",
+          "videos": {
+            "0": {
+              "src": "assets/videos/walker/fedguide/client-0.mp4",
+              "poster": "assets/posters/walker/fedguide/client-0.jpg",
+              "seed": 2,
+              "client": 0,
+              "round": 100,
+              "source": "plots/walker/fedguide/seed_2/client_0/round_0100.mp4"
+            },
+            "1": {
+              "src": "assets/videos/walker/fedguide/client-1.mp4",
+              "poster": "assets/posters/walker/fedguide/client-1.jpg",
+              "seed": 2,
+              "client": 1,
+              "round": 100,
+              "source": "plots/walker/fedguide/seed_2/client_1/round_0100.mp4"
+            },
+            "2": {
+              "src": "assets/videos/walker/fedguide/client-2.mp4",
+              "poster": "assets/posters/walker/fedguide/client-2.jpg",
+              "seed": 2,
+              "client": 2,
+              "round": 100,
+              "source": "plots/walker/fedguide/seed_2/client_2/round_0100.mp4"
+            },
+            "3": {
+              "src": "assets/videos/walker/fedguide/client-3.mp4",
+              "poster": "assets/posters/walker/fedguide/client-3.jpg",
+              "seed": 2,
+              "client": 3,
+              "round": 100,
+              "source": "plots/walker/fedguide/seed_2/client_3/round_0100.mp4"
+            },
+            "4": {
+              "src": "assets/videos/walker/fedguide/client-4.mp4",
+              "poster": "assets/posters/walker/fedguide/client-4.jpg",
+              "seed": 2,
+              "client": 4,
+              "round": 100,
+              "source": "plots/walker/fedguide/seed_2/client_4/round_0100.mp4"
+            },
+            "5": {
+              "src": "assets/videos/walker/fedguide/client-5.mp4",
+              "poster": "assets/posters/walker/fedguide/client-5.jpg",
+              "seed": 2,
+              "client": 5,
+              "round": 100,
+              "source": "plots/walker/fedguide/seed_2/client_5/round_0100.mp4"
+            },
+            "6": {
+              "src": "assets/videos/walker/fedguide/client-6.mp4",
+              "poster": "assets/posters/walker/fedguide/client-6.jpg",
+              "seed": 2,
+              "client": 6,
+              "round": 100,
+              "source": "plots/walker/fedguide/seed_2/client_6/round_0100.mp4"
+            },
+            "7": {
+              "src": "assets/videos/walker/fedguide/client-7.mp4",
+              "poster": "assets/posters/walker/fedguide/client-7.jpg",
+              "seed": 2,
+              "client": 7,
+              "round": 100,
+              "source": "plots/walker/fedguide/seed_2/client_7/round_0100.mp4"
+            }
+          }
+        },
+        {
+          "id": "fedguide_a",
+          "label": "FedGuide-A",
+          "seed": 2,
+          "selectionScore": 459.2055883578787,
+          "selectionMode": "env_algo_average",
+          "scoreSource": "metrics_distributed_fit:eval/return:tail10",
+          "videos": {
+            "0": {
+              "src": "assets/videos/walker/fedguide_a/client-0.mp4",
+              "poster": "assets/posters/walker/fedguide_a/client-0.jpg",
+              "seed": 2,
+              "client": 0,
+              "round": 100,
+              "source": "plots/walker/fedguide_a/seed_2/client_0/round_0100.mp4"
+            },
+            "1": {
+              "src": "assets/videos/walker/fedguide_a/client-1.mp4",
+              "poster": "assets/posters/walker/fedguide_a/client-1.jpg",
+              "seed": 2,
+              "client": 1,
+              "round": 100,
+              "source": "plots/walker/fedguide_a/seed_2/client_1/round_0100.mp4"
+            },
+            "2": {
+              "src": "assets/videos/walker/fedguide_a/client-2.mp4",
+              "poster": "assets/posters/walker/fedguide_a/client-2.jpg",
+              "seed": 2,
+              "client": 2,
+              "round": 100,
+              "source": "plots/walker/fedguide_a/seed_2/client_2/round_0100.mp4"
+            },
+            "3": {
+              "src": "assets/videos/walker/fedguide_a/client-3.mp4",
+              "poster": "assets/posters/walker/fedguide_a/client-3.jpg",
+              "seed": 2,
+              "client": 3,
+              "round": 100,
+              "source": "plots/walker/fedguide_a/seed_2/client_3/round_0100.mp4"
+            },
+            "4": {
+              "src": "assets/videos/walker/fedguide_a/client-4.mp4",
+              "poster": "assets/posters/walker/fedguide_a/client-4.jpg",
+              "seed": 2,
+              "client": 4,
+              "round": 100,
+              "source": "plots/walker/fedguide_a/seed_2/client_4/round_0100.mp4"
+            },
+            "5": {
+              "src": "assets/videos/walker/fedguide_a/client-5.mp4",
+              "poster": "assets/posters/walker/fedguide_a/client-5.jpg",
+              "seed": 2,
+              "client": 5,
+              "round": 100,
+              "source": "plots/walker/fedguide_a/seed_2/client_5/round_0100.mp4"
+            },
+            "6": {
+              "src": "assets/videos/walker/fedguide_a/client-6.mp4",
+              "poster": "assets/posters/walker/fedguide_a/client-6.jpg",
+              "seed": 2,
+              "client": 6,
+              "round": 100,
+              "source": "plots/walker/fedguide_a/seed_2/client_6/round_0100.mp4"
+            },
+            "7": {
+              "src": "assets/videos/walker/fedguide_a/client-7.mp4",
+              "poster": "assets/posters/walker/fedguide_a/client-7.jpg",
+              "seed": 2,
+              "client": 7,
+              "round": 100,
+              "source": "plots/walker/fedguide_a/seed_2/client_7/round_0100.mp4"
+            }
+          }
+        },
+        {
+          "id": "fedguide_p",
+          "label": "FedGuide-P",
+          "seed": 1,
+          "selectionScore": 399.3704378657309,
+          "selectionMode": "env_algo_average",
+          "scoreSource": "metrics_distributed_fit:eval/return:tail10",
+          "videos": {
+            "0": {
+              "src": "assets/videos/walker/fedguide_p/client-0.mp4",
+              "poster": "assets/posters/walker/fedguide_p/client-0.jpg",
+              "seed": 1,
+              "client": 0,
+              "round": 100,
+              "source": "plots/walker/fedguide_p/seed_1/client_0/round_0100.mp4"
+            },
+            "1": {
+              "src": "assets/videos/walker/fedguide_p/client-1.mp4",
+              "poster": "assets/posters/walker/fedguide_p/client-1.jpg",
+              "seed": 1,
+              "client": 1,
+              "round": 100,
+              "source": "plots/walker/fedguide_p/seed_1/client_1/round_0100.mp4"
+            },
+            "2": {
+              "src": "assets/videos/walker/fedguide_p/client-2.mp4",
+              "poster": "assets/posters/walker/fedguide_p/client-2.jpg",
+              "seed": 1,
+              "client": 2,
+              "round": 100,
+              "source": "plots/walker/fedguide_p/seed_1/client_2/round_0100.mp4"
+            },
+            "3": {
+              "src": "assets/videos/walker/fedguide_p/client-3.mp4",
+              "poster": "assets/posters/walker/fedguide_p/client-3.jpg",
+              "seed": 1,
+              "client": 3,
+              "round": 100,
+              "source": "plots/walker/fedguide_p/seed_1/client_3/round_0100.mp4"
+            },
+            "4": {
+              "src": "assets/videos/walker/fedguide_p/client-4.mp4",
+              "poster": "assets/posters/walker/fedguide_p/client-4.jpg",
+              "seed": 1,
+              "client": 4,
+              "round": 100,
+              "source": "plots/walker/fedguide_p/seed_1/client_4/round_0100.mp4"
+            },
+            "5": {
+              "src": "assets/videos/walker/fedguide_p/client-5.mp4",
+              "poster": "assets/posters/walker/fedguide_p/client-5.jpg",
+              "seed": 1,
+              "client": 5,
+              "round": 100,
+              "source": "plots/walker/fedguide_p/seed_1/client_5/round_0100.mp4"
+            },
+            "6": {
+              "src": "assets/videos/walker/fedguide_p/client-6.mp4",
+              "poster": "assets/posters/walker/fedguide_p/client-6.jpg",
+              "seed": 1,
+              "client": 6,
+              "round": 100,
+              "source": "plots/walker/fedguide_p/seed_1/client_6/round_0100.mp4"
+            },
+            "7": {
+              "src": "assets/videos/walker/fedguide_p/client-7.mp4",
+              "poster": "assets/posters/walker/fedguide_p/client-7.jpg",
+              "seed": 1,
+              "client": 7,
+              "round": 100,
+              "source": "plots/walker/fedguide_p/seed_1/client_7/round_0100.mp4"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "halfcheetah",
+      "name": "HalfCheetah",
+      "description": "Running across heterogeneous client environments.",
+      "poster": "assets/posters/halfcheetah.jpg",
+      "clients": [
+        {
+          "id": 0,
+          "label": "Client 0"
+        },
+        {
+          "id": 1,
+          "label": "Client 1"
+        },
+        {
+          "id": 2,
+          "label": "Client 2"
+        },
+        {
+          "id": 3,
+          "label": "Client 3"
+        },
+        {
+          "id": 4,
+          "label": "Client 4"
+        },
+        {
+          "id": 5,
+          "label": "Client 5"
+        },
+        {
+          "id": 6,
+          "label": "Client 6"
+        },
+        {
+          "id": 7,
+          "label": "Client 7"
+        }
+      ],
+      "methods": [
+        {
+          "id": "fedguide",
+          "label": "FedGuide",
+          "seed": 0,
+          "selectionScore": 2325.8986377835063,
+          "selectionMode": "env_algo_average",
+          "scoreSource": "metrics_distributed_fit:eval/return:tail10",
+          "videos": {
+            "0": {
+              "src": "assets/videos/halfcheetah/fedguide/client-0.mp4",
+              "poster": "assets/posters/halfcheetah/fedguide/client-0.jpg",
+              "seed": 0,
+              "client": 0,
+              "round": 100,
+              "source": "plots/halfcheetah/fedguide/seed_0/client_0/round_0100.mp4"
+            },
+            "1": {
+              "src": "assets/videos/halfcheetah/fedguide/client-1.mp4",
+              "poster": "assets/posters/halfcheetah/fedguide/client-1.jpg",
+              "seed": 0,
+              "client": 1,
+              "round": 100,
+              "source": "plots/halfcheetah/fedguide/seed_0/client_1/round_0100.mp4"
+            },
+            "2": {
+              "src": "assets/videos/halfcheetah/fedguide/client-2.mp4",
+              "poster": "assets/posters/halfcheetah/fedguide/client-2.jpg",
+              "seed": 0,
+              "client": 2,
+              "round": 100,
+              "source": "plots/halfcheetah/fedguide/seed_0/client_2/round_0100.mp4"
+            },
+            "3": {
+              "src": "assets/videos/halfcheetah/fedguide/client-3.mp4",
+              "poster": "assets/posters/halfcheetah/fedguide/client-3.jpg",
+              "seed": 0,
+              "client": 3,
+              "round": 100,
+              "source": "plots/halfcheetah/fedguide/seed_0/client_3/round_0100.mp4"
+            },
+            "4": {
+              "src": "assets/videos/halfcheetah/fedguide/client-4.mp4",
+              "poster": "assets/posters/halfcheetah/fedguide/client-4.jpg",
+              "seed": 0,
+              "client": 4,
+              "round": 100,
+              "source": "plots/halfcheetah/fedguide/seed_0/client_4/round_0100.mp4"
+            },
+            "5": {
+              "src": "assets/videos/halfcheetah/fedguide/client-5.mp4",
+              "poster": "assets/posters/halfcheetah/fedguide/client-5.jpg",
+              "seed": 0,
+              "client": 5,
+              "round": 100,
+              "source": "plots/halfcheetah/fedguide/seed_0/client_5/round_0100.mp4"
+            },
+            "6": {
+              "src": "assets/videos/halfcheetah/fedguide/client-6.mp4",
+              "poster": "assets/posters/halfcheetah/fedguide/client-6.jpg",
+              "seed": 0,
+              "client": 6,
+              "round": 100,
+              "source": "plots/halfcheetah/fedguide/seed_0/client_6/round_0100.mp4"
+            },
+            "7": {
+              "src": "assets/videos/halfcheetah/fedguide/client-7.mp4",
+              "poster": "assets/posters/halfcheetah/fedguide/client-7.jpg",
+              "seed": 0,
+              "client": 7,
+              "round": 100,
+              "source": "plots/halfcheetah/fedguide/seed_0/client_7/round_0100.mp4"
+            }
+          }
+        },
+        {
+          "id": "fedguide_a",
+          "label": "FedGuide-A",
+          "seed": 1,
+          "selectionScore": 1654.804018642279,
+          "selectionMode": "env_algo_average",
+          "scoreSource": "metrics_distributed_fit:eval/return:tail10",
+          "videos": {
+            "0": {
+              "src": "assets/videos/halfcheetah/fedguide_a/client-0.mp4",
+              "poster": "assets/posters/halfcheetah/fedguide_a/client-0.jpg",
+              "seed": 1,
+              "client": 0,
+              "round": 100,
+              "source": "plots/halfcheetah/fedguide_a/seed_1/client_0/round_0100.mp4"
+            },
+            "1": {
+              "src": "assets/videos/halfcheetah/fedguide_a/client-1.mp4",
+              "poster": "assets/posters/halfcheetah/fedguide_a/client-1.jpg",
+              "seed": 1,
+              "client": 1,
+              "round": 100,
+              "source": "plots/halfcheetah/fedguide_a/seed_1/client_1/round_0100.mp4"
+            },
+            "2": {
+              "src": "assets/videos/halfcheetah/fedguide_a/client-2.mp4",
+              "poster": "assets/posters/halfcheetah/fedguide_a/client-2.jpg",
+              "seed": 1,
+              "client": 2,
+              "round": 100,
+              "source": "plots/halfcheetah/fedguide_a/seed_1/client_2/round_0100.mp4"
+            },
+            "3": {
+              "src": "assets/videos/halfcheetah/fedguide_a/client-3.mp4",
+              "poster": "assets/posters/halfcheetah/fedguide_a/client-3.jpg",
+              "seed": 1,
+              "client": 3,
+              "round": 100,
+              "source": "plots/halfcheetah/fedguide_a/seed_1/client_3/round_0100.mp4"
+            },
+            "4": {
+              "src": "assets/videos/halfcheetah/fedguide_a/client-4.mp4",
+              "poster": "assets/posters/halfcheetah/fedguide_a/client-4.jpg",
+              "seed": 1,
+              "client": 4,
+              "round": 100,
+              "source": "plots/halfcheetah/fedguide_a/seed_1/client_4/round_0100.mp4"
+            },
+            "5": {
+              "src": "assets/videos/halfcheetah/fedguide_a/client-5.mp4",
+              "poster": "assets/posters/halfcheetah/fedguide_a/client-5.jpg",
+              "seed": 1,
+              "client": 5,
+              "round": 100,
+              "source": "plots/halfcheetah/fedguide_a/seed_1/client_5/round_0100.mp4"
+            },
+            "6": {
+              "src": "assets/videos/halfcheetah/fedguide_a/client-6.mp4",
+              "poster": "assets/posters/halfcheetah/fedguide_a/client-6.jpg",
+              "seed": 1,
+              "client": 6,
+              "round": 100,
+              "source": "plots/halfcheetah/fedguide_a/seed_1/client_6/round_0100.mp4"
+            },
+            "7": {
+              "src": "assets/videos/halfcheetah/fedguide_a/client-7.mp4",
+              "poster": "assets/posters/halfcheetah/fedguide_a/client-7.jpg",
+              "seed": 1,
+              "client": 7,
+              "round": 100,
+              "source": "plots/halfcheetah/fedguide_a/seed_1/client_7/round_0100.mp4"
+            }
+          }
+        },
+        {
+          "id": "fedguide_p",
+          "label": "FedGuide-P",
+          "seed": 0,
+          "selectionScore": 2311.9311666442413,
+          "selectionMode": "env_algo_average",
+          "scoreSource": "metrics_distributed_fit:eval/return:tail10",
+          "videos": {
+            "0": {
+              "src": "assets/videos/halfcheetah/fedguide_p/client-0.mp4",
+              "poster": "assets/posters/halfcheetah/fedguide_p/client-0.jpg",
+              "seed": 0,
+              "client": 0,
+              "round": 100,
+              "source": "plots/halfcheetah/fedguide_p/seed_0/client_0/round_0100.mp4"
+            },
+            "1": {
+              "src": "assets/videos/halfcheetah/fedguide_p/client-1.mp4",
+              "poster": "assets/posters/halfcheetah/fedguide_p/client-1.jpg",
+              "seed": 0,
+              "client": 1,
+              "round": 100,
+              "source": "plots/halfcheetah/fedguide_p/seed_0/client_1/round_0100.mp4"
+            },
+            "2": {
+              "src": "assets/videos/halfcheetah/fedguide_p/client-2.mp4",
+              "poster": "assets/posters/halfcheetah/fedguide_p/client-2.jpg",
+              "seed": 0,
+              "client": 2,
+              "round": 100,
+              "source": "plots/halfcheetah/fedguide_p/seed_0/client_2/round_0100.mp4"
+            },
+            "3": {
+              "src": "assets/videos/halfcheetah/fedguide_p/client-3.mp4",
+              "poster": "assets/posters/halfcheetah/fedguide_p/client-3.jpg",
+              "seed": 0,
+              "client": 3,
+              "round": 100,
+              "source": "plots/halfcheetah/fedguide_p/seed_0/client_3/round_0100.mp4"
+            },
+            "4": {
+              "src": "assets/videos/halfcheetah/fedguide_p/client-4.mp4",
+              "poster": "assets/posters/halfcheetah/fedguide_p/client-4.jpg",
+              "seed": 0,
+              "client": 4,
+              "round": 100,
+              "source": "plots/halfcheetah/fedguide_p/seed_0/client_4/round_0100.mp4"
+            },
+            "5": {
+              "src": "assets/videos/halfcheetah/fedguide_p/client-5.mp4",
+              "poster": "assets/posters/halfcheetah/fedguide_p/client-5.jpg",
+              "seed": 0,
+              "client": 5,
+              "round": 100,
+              "source": "plots/halfcheetah/fedguide_p/seed_0/client_5/round_0100.mp4"
+            },
+            "6": {
+              "src": "assets/videos/halfcheetah/fedguide_p/client-6.mp4",
+              "poster": "assets/posters/halfcheetah/fedguide_p/client-6.jpg",
+              "seed": 0,
+              "client": 6,
+              "round": 100,
+              "source": "plots/halfcheetah/fedguide_p/seed_0/client_6/round_0100.mp4"
+            },
+            "7": {
+              "src": "assets/videos/halfcheetah/fedguide_p/client-7.mp4",
+              "poster": "assets/posters/halfcheetah/fedguide_p/client-7.jpg",
+              "seed": 0,
+              "client": 7,
+              "round": 100,
+              "source": "plots/halfcheetah/fedguide_p/seed_0/client_7/round_0100.mp4"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "metaworld",
+      "name": "MetaWorld ML10",
+      "description": "Ten manipulation tasks, each assigned to a different client.",
+      "poster": "assets/posters/metaworld.jpg",
+      "clients": [
+        {
+          "id": 0,
+          "label": "Client 0 \u00b7 Reach",
+          "task": "Reach"
+        },
+        {
+          "id": 1,
+          "label": "Client 1 \u00b7 Push",
+          "task": "Push"
+        },
+        {
+          "id": 2,
+          "label": "Client 2 \u00b7 Pick & place",
+          "task": "Pick & place"
+        },
+        {
+          "id": 3,
+          "label": "Client 3 \u00b7 Door open",
+          "task": "Door open"
+        },
+        {
+          "id": 4,
+          "label": "Client 4 \u00b7 Drawer close",
+          "task": "Drawer close"
+        },
+        {
+          "id": 5,
+          "label": "Client 5 \u00b7 Button press",
+          "task": "Button press"
+        },
+        {
+          "id": 6,
+          "label": "Client 6 \u00b7 Peg insert",
+          "task": "Peg insert"
+        },
+        {
+          "id": 7,
+          "label": "Client 7 \u00b7 Window open",
+          "task": "Window open"
+        },
+        {
+          "id": 8,
+          "label": "Client 8 \u00b7 Sweep",
+          "task": "Sweep"
+        },
+        {
+          "id": 9,
+          "label": "Client 9 \u00b7 Basketball",
+          "task": "Basketball"
+        }
+      ],
+      "methods": [
+        {
+          "id": "fedguide",
+          "label": "FedGuide",
+          "seed": 2,
+          "selectionScore": 1042.0297740595902,
+          "selectionMode": "env_algo_average",
+          "scoreSource": "metrics_distributed_fit:eval/return:tail10",
+          "videos": {
+            "0": {
+              "src": "assets/videos/metaworld/fedguide/client-0.mp4",
+              "poster": "assets/posters/metaworld/fedguide/client-0.jpg",
+              "seed": 2,
+              "client": 0,
+              "round": 100,
+              "source": "plots/metaworld/fedguide/seed_2/client_0/round_0100.mp4"
+            },
+            "1": {
+              "src": "assets/videos/metaworld/fedguide/client-1.mp4",
+              "poster": "assets/posters/metaworld/fedguide/client-1.jpg",
+              "seed": 2,
+              "client": 1,
+              "round": 100,
+              "source": "plots/metaworld/fedguide/seed_2/client_1/round_0100.mp4"
+            },
+            "2": {
+              "src": "assets/videos/metaworld/fedguide/client-2.mp4",
+              "poster": "assets/posters/metaworld/fedguide/client-2.jpg",
+              "seed": 2,
+              "client": 2,
+              "round": 100,
+              "source": "plots/metaworld/fedguide/seed_2/client_2/round_0100.mp4"
+            },
+            "3": {
+              "src": "assets/videos/metaworld/fedguide/client-3.mp4",
+              "poster": "assets/posters/metaworld/fedguide/client-3.jpg",
+              "seed": 2,
+              "client": 3,
+              "round": 100,
+              "source": "plots/metaworld/fedguide/seed_2/client_3/round_0100.mp4"
+            },
+            "4": {
+              "src": "assets/videos/metaworld/fedguide/client-4.mp4",
+              "poster": "assets/posters/metaworld/fedguide/client-4.jpg",
+              "seed": 2,
+              "client": 4,
+              "round": 100,
+              "source": "plots/metaworld/fedguide/seed_2/client_4/round_0100.mp4"
+            },
+            "5": {
+              "src": "assets/videos/metaworld/fedguide/client-5.mp4",
+              "poster": "assets/posters/metaworld/fedguide/client-5.jpg",
+              "seed": 2,
+              "client": 5,
+              "round": 100,
+              "source": "plots/metaworld/fedguide/seed_2/client_5/round_0100.mp4"
+            },
+            "6": {
+              "src": "assets/videos/metaworld/fedguide/client-6.mp4",
+              "poster": "assets/posters/metaworld/fedguide/client-6.jpg",
+              "seed": 2,
+              "client": 6,
+              "round": 100,
+              "source": "plots/metaworld/fedguide/seed_2/client_6/round_0100.mp4"
+            },
+            "7": {
+              "src": "assets/videos/metaworld/fedguide/client-7.mp4",
+              "poster": "assets/posters/metaworld/fedguide/client-7.jpg",
+              "seed": 2,
+              "client": 7,
+              "round": 100,
+              "source": "plots/metaworld/fedguide/seed_2/client_7/round_0100.mp4"
+            },
+            "8": {
+              "src": "assets/videos/metaworld/fedguide/client-8.mp4",
+              "poster": "assets/posters/metaworld/fedguide/client-8.jpg",
+              "seed": 2,
+              "client": 8,
+              "round": 100,
+              "source": "plots/metaworld/fedguide/seed_2/client_8/round_0100.mp4"
+            },
+            "9": {
+              "src": "assets/videos/metaworld/fedguide/client-9.mp4",
+              "poster": "assets/posters/metaworld/fedguide/client-9.jpg",
+              "seed": 2,
+              "client": 9,
+              "round": 100,
+              "source": "plots/metaworld/fedguide/seed_2/client_9/round_0100.mp4"
+            }
+          }
+        },
+        {
+          "id": "fedguide_a",
+          "label": "FedGuide-A",
+          "seed": 3,
+          "selectionScore": 922.9384499358748,
+          "selectionMode": "env_algo_average",
+          "scoreSource": "metrics_distributed_fit:eval/return:tail10",
+          "videos": {
+            "0": {
+              "src": "assets/videos/metaworld/fedguide_a/client-0.mp4",
+              "poster": "assets/posters/metaworld/fedguide_a/client-0.jpg",
+              "seed": 3,
+              "client": 0,
+              "round": 100,
+              "source": "plots/metaworld/fedguide_a/seed_3/client_0/round_0100.mp4"
+            },
+            "1": {
+              "src": "assets/videos/metaworld/fedguide_a/client-1.mp4",
+              "poster": "assets/posters/metaworld/fedguide_a/client-1.jpg",
+              "seed": 3,
+              "client": 1,
+              "round": 100,
+              "source": "plots/metaworld/fedguide_a/seed_3/client_1/round_0100.mp4"
+            },
+            "2": {
+              "src": "assets/videos/metaworld/fedguide_a/client-2.mp4",
+              "poster": "assets/posters/metaworld/fedguide_a/client-2.jpg",
+              "seed": 3,
+              "client": 2,
+              "round": 100,
+              "source": "plots/metaworld/fedguide_a/seed_3/client_2/round_0100.mp4"
+            },
+            "3": {
+              "src": "assets/videos/metaworld/fedguide_a/client-3.mp4",
+              "poster": "assets/posters/metaworld/fedguide_a/client-3.jpg",
+              "seed": 3,
+              "client": 3,
+              "round": 100,
+              "source": "plots/metaworld/fedguide_a/seed_3/client_3/round_0100.mp4"
+            },
+            "4": {
+              "src": "assets/videos/metaworld/fedguide_a/client-4.mp4",
+              "poster": "assets/posters/metaworld/fedguide_a/client-4.jpg",
+              "seed": 3,
+              "client": 4,
+              "round": 100,
+              "source": "plots/metaworld/fedguide_a/seed_3/client_4/round_0100.mp4"
+            },
+            "5": {
+              "src": "assets/videos/metaworld/fedguide_a/client-5.mp4",
+              "poster": "assets/posters/metaworld/fedguide_a/client-5.jpg",
+              "seed": 3,
+              "client": 5,
+              "round": 100,
+              "source": "plots/metaworld/fedguide_a/seed_3/client_5/round_0100.mp4"
+            },
+            "6": {
+              "src": "assets/videos/metaworld/fedguide_a/client-6.mp4",
+              "poster": "assets/posters/metaworld/fedguide_a/client-6.jpg",
+              "seed": 3,
+              "client": 6,
+              "round": 100,
+              "source": "plots/metaworld/fedguide_a/seed_3/client_6/round_0100.mp4"
+            },
+            "7": {
+              "src": "assets/videos/metaworld/fedguide_a/client-7.mp4",
+              "poster": "assets/posters/metaworld/fedguide_a/client-7.jpg",
+              "seed": 3,
+              "client": 7,
+              "round": 100,
+              "source": "plots/metaworld/fedguide_a/seed_3/client_7/round_0100.mp4"
+            },
+            "8": {
+              "src": "assets/videos/metaworld/fedguide_a/client-8.mp4",
+              "poster": "assets/posters/metaworld/fedguide_a/client-8.jpg",
+              "seed": 3,
+              "client": 8,
+              "round": 100,
+              "source": "plots/metaworld/fedguide_a/seed_3/client_8/round_0100.mp4"
+            },
+            "9": {
+              "src": "assets/videos/metaworld/fedguide_a/client-9.mp4",
+              "poster": "assets/posters/metaworld/fedguide_a/client-9.jpg",
+              "seed": 3,
+              "client": 9,
+              "round": 100,
+              "source": "plots/metaworld/fedguide_a/seed_3/client_9/round_0100.mp4"
+            }
+          }
+        },
+        {
+          "id": "fedguide_p",
+          "label": "FedGuide-P",
+          "seed": 2,
+          "selectionScore": 953.4517579188147,
+          "selectionMode": "env_algo_average",
+          "scoreSource": "metrics_distributed_fit:eval/return:tail10",
+          "videos": {
+            "0": {
+              "src": "assets/videos/metaworld/fedguide_p/client-0.mp4",
+              "poster": "assets/posters/metaworld/fedguide_p/client-0.jpg",
+              "seed": 2,
+              "client": 0,
+              "round": 100,
+              "source": "plots/metaworld/fedguide_p/seed_2/client_0/round_0100.mp4"
+            },
+            "1": {
+              "src": "assets/videos/metaworld/fedguide_p/client-1.mp4",
+              "poster": "assets/posters/metaworld/fedguide_p/client-1.jpg",
+              "seed": 2,
+              "client": 1,
+              "round": 100,
+              "source": "plots/metaworld/fedguide_p/seed_2/client_1/round_0100.mp4"
+            },
+            "2": {
+              "src": "assets/videos/metaworld/fedguide_p/client-2.mp4",
+              "poster": "assets/posters/metaworld/fedguide_p/client-2.jpg",
+              "seed": 2,
+              "client": 2,
+              "round": 100,
+              "source": "plots/metaworld/fedguide_p/seed_2/client_2/round_0100.mp4"
+            },
+            "3": {
+              "src": "assets/videos/metaworld/fedguide_p/client-3.mp4",
+              "poster": "assets/posters/metaworld/fedguide_p/client-3.jpg",
+              "seed": 2,
+              "client": 3,
+              "round": 100,
+              "source": "plots/metaworld/fedguide_p/seed_2/client_3/round_0100.mp4"
+            },
+            "4": {
+              "src": "assets/videos/metaworld/fedguide_p/client-4.mp4",
+              "poster": "assets/posters/metaworld/fedguide_p/client-4.jpg",
+              "seed": 2,
+              "client": 4,
+              "round": 100,
+              "source": "plots/metaworld/fedguide_p/seed_2/client_4/round_0100.mp4"
+            },
+            "5": {
+              "src": "assets/videos/metaworld/fedguide_p/client-5.mp4",
+              "poster": "assets/posters/metaworld/fedguide_p/client-5.jpg",
+              "seed": 2,
+              "client": 5,
+              "round": 100,
+              "source": "plots/metaworld/fedguide_p/seed_2/client_5/round_0100.mp4"
+            },
+            "6": {
+              "src": "assets/videos/metaworld/fedguide_p/client-6.mp4",
+              "poster": "assets/posters/metaworld/fedguide_p/client-6.jpg",
+              "seed": 2,
+              "client": 6,
+              "round": 100,
+              "source": "plots/metaworld/fedguide_p/seed_2/client_6/round_0100.mp4"
+            },
+            "7": {
+              "src": "assets/videos/metaworld/fedguide_p/client-7.mp4",
+              "poster": "assets/posters/metaworld/fedguide_p/client-7.jpg",
+              "seed": 2,
+              "client": 7,
+              "round": 100,
+              "source": "plots/metaworld/fedguide_p/seed_2/client_7/round_0100.mp4"
+            },
+            "8": {
+              "src": "assets/videos/metaworld/fedguide_p/client-8.mp4",
+              "poster": "assets/posters/metaworld/fedguide_p/client-8.jpg",
+              "seed": 2,
+              "client": 8,
+              "round": 100,
+              "source": "plots/metaworld/fedguide_p/seed_2/client_8/round_0100.mp4"
+            },
+            "9": {
+              "src": "assets/videos/metaworld/fedguide_p/client-9.mp4",
+              "poster": "assets/posters/metaworld/fedguide_p/client-9.jpg",
+              "seed": 2,
+              "client": 9,
+              "round": 100,
+              "source": "plots/metaworld/fedguide_p/seed_2/client_9/round_0100.mp4"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
