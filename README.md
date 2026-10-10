@@ -1,80 +1,105 @@
-# FedGuide research page
+# FedGuide Research Page
 
-一版英文的学术项目主页。暖白背景、深蓝强调色，以真实的策略录像与实验结果组织内容。独立于训练代码，纯 HTML / CSS / JavaScript，无构建依赖。
+The academic project website for **FedGuide: Diffusion Prior Alignment and Value Baseline Guidance for Heterogeneous Federated Reinforcement Learning**, featuring recorded policy demonstrations, learning curves, and experimental results.
 
-## 本地预览
+Built with plain HTML, CSS, and JavaScript, independently of the training code. No build step is required.
 
-在本仓库目录运行：
+**[Live website](https://hhhhzl.github.io/fedguide-page/)** · **[Research code](https://github.com/hhhhzl/fedguide)** · **[Paper](https://arxiv.org/abs/2609.18964)**
+
+## Local Preview
+
+From this repository, run:
 
 ```bash
 npm run dev
 ```
 
-浏览器打开 <http://127.0.0.1:4173>。必须通过 HTTP 访问，直接双击 HTML 无法加载 JSON。默认监听本机回环地址；端口可用 `PORT=4174 npm run dev` 修改。
+Open [http://127.0.0.1:4173](http://127.0.0.1:4173). Serve the page over HTTP; opening the HTML file directly will prevent the JSON data from loading. The server listens on the local loopback interface by default. To use another port, run `PORT=4174 npm run dev`.
 
-## 页面内容
+## Website Contents
 
-- 论文标题、作者、CoRL 2026 Spotlight 信息、论文与代码入口。
-- 五种环境的 FedGuide 视频预览。
-- 研究动机、可缩放的 SVG 方法示意图及三步方法解释。
-- 5 个主环境 + 4 个 hard 环境 × 3 个变体 × 8 / 10 个客户端，共 222 段实际策略录像。hard 环境包括 Reacher-Hard、Hopper-Hard、Walker2D-Hard 和 HalfCheetah-Hard。
-- 当前环境的所有 8 / 10 个客户端直接展开，每行三个方法；无需选择客户端。支持逐行播放、滚动时播放可见行、暂停全部、重新开始、0.5× / 1× / 2× 速度。各片段独立循环，不保证长期严格帧同步。
-- 九组学习曲线的图例放在坐标区域下方。主环境与 hard 环境分别列出；七种方法的完整结果表支持最终回报与最差种子回报切换。
-- 组件消融对照、BibTeX 复制。
-- 手机布局、键盘焦点、减少动态效果偏好、离屏预览暂停。
+- Paper title, authors, CoRL 2026 Spotlight information, and links to the paper and research code.
+- FedGuide video previews across five main environments.
+- Research motivation, an SVG framework diagram, and a three-step explanation of the method.
+- **222 recorded policy demonstrations** across five main environments and four hard environments, with three method variants and eight clients per environment (ten for MetaWorld10). The hard suite includes Reacher-Hard, Hopper-Hard, Walker2D-Hard, and HalfCheetah-Hard.
+- All clients in the selected environment are expanded, with three methods per row. Controls support row playback, playback of visible rows while scrolling, pause all, restart, and 0.5× / 1× / 2× speed. Clips loop independently and are not guaranteed to remain frame-synchronized.
+- Nine sets of learning curves with legends below the plot area. Main and hard environments are grouped separately. The complete seven-method results table supports final-return and worst-seed-return views.
+- A component ablation comparison and a copyable BibTeX citation.
+- Mobile layouts, visible keyboard focus, reduced-motion support, and automatic pausing of offscreen previews.
 
-## 编辑与部署
+## Editing and Deployment
 
-- `dist/index.html`：文案、页面结构、方法图、引用。
-- `dist/styles.css`：视觉系统、响应式规则。
-- `dist/app.js`：演示与结果交互。
-- `dist/demo-data.json`：录像清单、客户端、任务及随机种子。
-- `dist/results-data.json`：实验统计数据与计算定义。
-- `dist/assets/`：已复制的实际录像、从录像提取的 JPEG 封面、实验曲线。
-- `server.mjs`：支持视频 Range 请求的本地静态服务。
+| Path | Purpose |
+| --- | --- |
+| `dist/index.html` | Page structure, text, framework diagram, and citation |
+| `dist/styles.css` | Visual styling and responsive layouts |
+| `dist/app.js` | Demonstration controls and results interactions |
+| `dist/demo-data.json` | Video manifest, clients, tasks, and selected seeds |
+| `dist/results-data.json` | Experimental statistics and metric definitions |
+| `dist/assets/` | Recorded videos, extracted JPEG posters, and learning curves |
+| `server.mjs` | Local static server with support for video Range requests |
 
-静态主机直接托管 `dist/` 即可。内部资源均为相对路径，支持子路径部署。不需要运行 Python 训练环境。录像与封面随静态网页一同发布，录像不预加载，开启滚动播放后仅播放可见行；所有客户端封面始终展示。字体使用 Google Fonts，无法联网时回退系统字体。
+Any static host can serve `dist/` directly. Internal asset URLs are relative, so the site supports deployment under a subpath. The Python training environment is not required to serve the website.
 
-`.github/workflows/pages.yml` 在 `main` 分支更新后检查页面资源并发布 `dist/` 到 GitHub Pages。网站地址：<https://hhhhzl.github.io/fedguide-page/>。
+Videos and posters are published with the static site. Demonstration videos are not preloaded; scroll playback only plays visible rows, while every client's poster remains available. Fonts are loaded from Google Fonts with system-font fallbacks.
 
-## 数据依据与统计口径
+The workflow in `.github/workflows/pages.yml` checks site assets and deploys `dist/` to GitHub Pages whenever `main` is updated. The published URL is [https://hhhhzl.github.io/fedguide-page/](https://hhhhzl.github.io/fedguide-page/).
 
-作者、题目、会议、链接来自根目录 `README.md` 和 `latex/latex_fedguide/main.tex`。此次没有改动论文或训练文件。
+## Data Sources and Metric Definitions
 
-主环境录像采用 `assets/video_selection.json` 的选取结果；hard 环境按同一规则从对应实验的训练记录和录像重新选择，全部为第 100 轮。Reacher-Hard 来自 `reacher/ablation/C`，其余来自对应的 `*_hard` 目录。每个环境、每个方法按最后 10 轮的环境平均评估回报选择最佳种子。它们是定性展示，不代表跨种子均值，也不是所播放单个 episode 的回报。MetaWorld 的客户端任务名称来自现有环境素材。当前 HalfCheetah 元数据有 64 个客户端，而所保存的演示只有 8 个；页面沿用录像清单，不把当前配置套到旧录像上。
+Source paths in this section refer to the original [FedGuide research repository](https://github.com/hhhhzl/fedguide), unless stated otherwise. Author information, the title, conference details, and links come from that repository's `README.md` and `latex/latex_fedguide/main.tex`.
 
-实验数字由现有 `metrics/*/training_history.pkl` 重新计算，和论文 `tex/results_table.tex` 的四舍五入值一致：5 个主环境 + 4 个 hard 环境 × 7 个方法，每种组合均有 5 个种子、100 轮。
+### Policy Demonstrations
 
-- **Final return**：先对每个种子的最后 10 轮 client-average return 求均值，再报告 5 个种子的均值 ± 样本标准差（SD）。
-- **Worst-seed return**：上述 5 个种子结果中的最小值。
-- **曲线**：通过 `scripts/export_curves.py` 从原始实验记录重新导出，复用研究代码的五种子聚合、平滑及标准误计算，仅改变图例位置和版式。均值 ± 1 标准误（SE）；平滑方式见 JSON 的 `metadata.curveDefinition`。
-- 主实验及 hard 实验每环境 8 个客户端，MetaWorld10 为 10 个。所有环境 8 个专家。
-- FedGuide 在 5 个主任务中的 4 个取得最高平均最终回报；Reacher 上 FedGuide-P 略高。HalfCheetah 的 2.10× 对比是 FedGuide 与最强外部基线 FedKL，不是与 FedGuide-P 的比较。
+Main-environment recordings follow the selections in `assets/video_selection.json`. Hard-environment recordings use the same selection rule, recomputed from the corresponding training histories and saved videos. All recordings are from round 100. Reacher-Hard uses `reacher/ablation/C`; the other hard environments use their respective `*_hard` directories.
 
-Hard 环境中，FedGuide 在 Walker2D-Hard 和 HalfCheetah-Hard 的平均最终回报最高；Reacher-Hard 由 FedGuide-P 领先，Hopper-Hard 由 FedRL 领先。Reacher-Hard 曲线采用对称对数纵轴，以容纳包括负值在内的大幅回报跨度。
+For each environment and method, the selected seed has the highest environment-average evaluation return over the last ten rounds. These clips are qualitative examples: the selection score is neither a cross-seed average nor the return of the particular episode being played. Different methods may use different seeds, which are displayed above each recording.
 
-原论文表注将 W 写为 worst-round，但计算脚本取 worst-seed；曲线图注将误差写为 SD，但绘图脚本计算 SE。网页按实际计算方式标注，未修改源论文。
+MetaWorld client task names come from the existing environment assets. The current HalfCheetah metadata lists 64 clients, while the saved demonstrations contain eight. The website follows the recorded experiment rather than applying the current configuration to older recordings.
 
-重新生成曲线需要原始 FedGuide 研究仓库、实验记录、NumPy 和 Matplotlib。若本网页仓库不在研究仓库内，可指定来源目录：
+### Quantitative Results
+
+Statistics were recomputed from the saved `training_history.pkl` files under `metrics/` and checked against the corresponding paper tables. The dataset covers five main environments and four hard environments, with seven methods, five seeds, and 100 rounds for every environment–method combination.
+
+- **Final return:** Compute each seed's mean client-average evaluation return over its last ten rounds, then report the mean ± sample standard deviation (SD) across the five seeds.
+- **Worst-seed return:** The minimum of those five per-seed final returns.
+- **Learning curves:** Exported from the original histories using this repository's `scripts/export_curves.py`. The exporter reuses the research code's five-seed aggregation, smoothing, and standard-error calculations, while placing legends below the axes. Bands show mean ± one standard error (SE). Smoothing details are recorded in `metadata.curveDefinition` in `dist/results-data.json`.
+- **Experimental protocol:** Eight clients per main or hard environment, except MetaWorld10, which has ten. All environments use eight experts.
+
+FedGuide has the highest mean final return on four of the five main benchmarks; FedGuide-P is slightly higher on Reacher. The 2.10× HalfCheetah comparison is against FedKL, the strongest external baseline.
+
+In the hard suite, FedGuide has the highest mean final return on Walker2D-Hard and HalfCheetah-Hard. FedGuide-P leads on Reacher-Hard, and FedRL leads on Hopper-Hard. Reacher-Hard uses a symmetric logarithmic return axis to accommodate the wide range of values, including negative returns.
+
+The paper's table caption labels W as “worst-round,” while the metric implementation computes worst-seed return. The curve caption refers to SD, while the plotting code computes SE. The website labels these statistics according to their implemented definitions; the source paper is unchanged.
+
+### Regenerating Assets
+
+Regenerating curves requires the original FedGuide research checkout, its experiment histories, NumPy, and Matplotlib. If this website repository is not located inside the research checkout, specify the source directory:
 
 ```bash
 FEDGUIDE_SOURCE_ROOT=/path/to/fedguide python3 scripts/export_curves.py --update-results
 ```
 
-Hard 录像与封面的可复现导出需要 ffmpeg：
+Re-exporting hard-environment recordings and posters also requires ffmpeg:
 
 ```bash
 FEDGUIDE_SOURCE_ROOT=/path/to/fedguide FFMPEG=/path/to/ffmpeg python3 scripts/export_hard_demos.py
 ```
 
-## 验证
+## Validation
 
-- `node --check dist/app.js` 与 `node --check server.mjs`。
-- 所有 222 段录像和对应封面、9 张环境封面、9 组学习曲线均存在；主环境源路径与种子符合原始清单，hard 环境对应其原始训练记录与录像。
-- 本地页面返回 HTTP 200；浏览器实际播放三路 H.264 视频，均达到可播放状态。
-- `python3 scripts/check_site.py` 检查本地页面资源和所有客户端媒体。
-- 浏览器验证 8 / 10 行客户端全部展开、逐行播放及倍速切换、完整结果表及统计口径切换、BibTeX 复制。
-- 390 px 手机宽度无页面横向溢出；横向环境条、方法图和宽表格保留各自滚动区域。
-- 检查到的浏览器控制台错误 / 警告为 0。
+Run the static checks with:
 
-发布配置为 GitHub Pages，使用 GitHub Actions 自动部署。
+```bash
+node --check dist/app.js
+node --check server.mjs
+python3 scripts/check_site.py
+```
+
+The published version has also been checked for:
+
+- All 222 recordings and their client posters, nine environment posters, and nine sets of learning curves. Main-suite selections match the original manifest; hard-suite selections match their training histories and recordings.
+- Successful HTTP responses and actual playback of all three H.264 videos in a comparison row.
+- Expanded eight- and ten-client layouts, row playback, playback-speed controls, result-table metric switching, and BibTeX copying.
+- A 390 px mobile viewport without page-wide horizontal overflow. Environment tabs, the framework diagram, and wide tables retain their own scroll areas.
+- No browser console errors or warnings during verification.
