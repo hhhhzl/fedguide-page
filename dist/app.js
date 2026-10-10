@@ -309,7 +309,7 @@ const navigationObserver = new IntersectionObserver((entries) => {
 $$('main section[id]').forEach((section) => navigationObserver.observe(section));
 
 async function readJSON(path) {
-  const response = await fetch(path);
+  const response = await fetch(`${path}?v=20261010-hard`);
   if (!response.ok) throw new Error(`${path}: HTTP ${response.status}`);
   return response.json();
 }
